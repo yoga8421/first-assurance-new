@@ -1,0 +1,248 @@
+/* Parent Background */
+.parent {
+    background-image: url('/assets/images/background_template.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    font-family: Inter;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    padding: 4rem;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 25%;
+    max-width: 300px;
+    // background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 1rem;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li:hover {
+    background-color: rgba(255, 102, 0, 0.1);
+}
+
+.number {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    color: white;
+}
+
+.sidebar .active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Form Container */
+.form-container {
+    flex: 1;
+    padding: 2rem;
+    background-color:white;
+    border-radius:50px;
+    box-shadow: var(--shadow);
+    font-family: Inter;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    transition: 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--focus-color);
+}
+
+/* Claim Buttons */
+.claim-experience {
+    margin: 2rem 0;
+}
+
+.claim-buttons button {
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.claim-buttons button:hover,
+.claim-buttons button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Submit Button */
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.continue-button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.continue-button:hover {
+    background-color: #e65c00;
+}
+
+/* Modal Header */
+.modal-header {
+    background-color: #e65c00; /* Primary blue */
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid #e65c00; /* Slightly darker shade for border */
+}
+
+/* Close button styling */
+.modal-header .close {
+    color: #e65c00;
+    opacity: 1;
+    font-size: 1.5rem;
+}
+
+/* Search Input */
+.modal-body .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Table Styling */
+.table {
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6; /* Subtle border for the table */
+}
+
+.table thead {
+    background-color: #f8f9fa; /* Light background for header row */
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+    cursor: pointer;
+}
+
+/* Radio Button Alignment */
+.table td input[type="radio"] {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Pagination Buttons */
+.modal-footer .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d; /* Gray */
+    border-color: #6c757d;
+    color:     #e65c00; /* Primary blue */
+    
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5a6268; /* Slightly darker */
+    border-color: #545b62;
+}
+
+.modal-footer .btn-primary {
+    background-color: #6c757d; /* Primary blue */
+    border-color: #6c757d;
+    color: white;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #e65c00; /* Darker blue */
+    border-color: #e65c00;
+}
+
+/* Page Indicator */
+.modal-footer span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+/* Modal Dialog Customizations */
+.modal-dialog {
+    max-width: 800px;
+    margin: 1.75rem auto;
+}
+
+.modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}

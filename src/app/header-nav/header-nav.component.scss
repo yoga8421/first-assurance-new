@@ -1,0 +1,167 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  color: var(--primary-color);
+
+  flex-wrap: wrap; /* Allows wrapping for small screens */
+}
+
+.logo {
+  height: 30px;
+  padding-right: 60%; /* Adjusted for better responsiveness */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Space from other elements */
+
+}
+
+.logo {
+  height: 40px;
+  padding-right: 60%
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+nav .browser {
+  align-items: center;
+  display: inline-block;
+  vertical-align: middle; /* Center vertically */
+
+  margin-right: 10px; /* Spacing with text or other elements */
+
+  margin-right: 9px; /* Spacing with text or other elements */
+
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Space for smaller screens */
+
+
+}
+
+.user-profile img {
+  height: 30px;
+  margin-left: 10px;
+}
+
+
+/* Responsive Design for Smaller Screens */
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start
+
+  }
+
+  .logo {
+    padding-right: 0;
+    margin-bottom: 10px; /* Add spacing between elements */
+  }
+
+  nav {
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Wrap nav items */
+  }
+
+  nav a {
+    margin: 5px; /* Reduce spacing between links */
+    font-size: 14px; /* Smaller text for links */
+  }
+
+  .user-profile {
+    justify-content: flex-start;
+    margin-top: 10px; /* Add spacing between profile and other elements */
+  }
+
+  .user-profile img {
+    height: 25px; /* Smaller profile icon */
+
+    padding: 10px;
+  }
+
+  .logo {
+    padding-right: 0; /* Adjust logo spacing */
+    margin-bottom: 10px;
+  }
+
+  nav a {
+    margin: 5px 0; /* Adjust spacing for smaller screens */
+  }
+
+  .user-profile {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .logo {
+    height: 30px; /* Reduce logo size */
+  }
+
+  nav a {
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .user-profile img {
+    height: 25px; /* Smaller profile picture */
+
+  }
+}
+
+
+
+
+
+
+/* .header 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: var(--primary-color);
+  }
+  .logo {
+    height: 40px;
+    padding-right:60%;
+  }
+  nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color:var(--primary-color);
+  }
+  nav .browser{
+    align-items:center;
+    display: inline-block; */
+    /* vertical-align: middle; Center vertically */
+    /* margin-right: 9px; Spacing with text or other elements */
+  /* } */
+  /* .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  .user-profile img {
+    height: 30px;
+    margin-left: 10px;
+  } */
+
+  

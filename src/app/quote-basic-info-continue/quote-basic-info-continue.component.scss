@@ -1,0 +1,103 @@
+
+  .parent{
+    background-image: url('/assets/images/background_template.png');
+    background-size: cover;
+  }
+.form-container {
+    background-color: var(--bg-color);
+}
+
+.inner-container {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.layout-box {
+    margin: auto;
+    width: 500px;
+    border: 1px solid green;
+    margin-bottom: 2rem;
+    background-color: white;
+}
+
+h2 {
+    /* text-align: center; */
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.section {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type='text'],
+button.arrow-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.dropdown {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#vehicle-make {
+    width: 86%;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button.make-button,
+button.type-button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 25%;
+    height: 30%;
+    margin-right: 30px;
+}
+
+button.make-button:hover,
+button.type-button:hover {
+    background-color: #ffc107;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.continue-button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

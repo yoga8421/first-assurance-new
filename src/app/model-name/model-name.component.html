@@ -1,0 +1,62 @@
+<!-- <div class="info-page">
+    <header class="header">
+      <div class="logo">First Assurance</div>
+      <nav>
+        <ul>
+          <li>Motor</li>
+          <li>Broker</li>
+          <li>Nairobi</li>
+        </ul>
+        <div class="user">
+          <span>Name</span>
+          <img src="assets/profile-icon.png" alt="Profile" />
+        </div>
+      </nav>
+    </header> -->
+    <app-header-nav></app-header-nav>
+    <div class="parent">
+    <main>
+      <div class="form-container">
+        <h2>We just need some more information</h2>
+        <form>
+          <div class="form-group">
+            <label>Vehicle make</label>
+            <div class="input-container">
+              <input type="text" value="Maruti Suzuki" disabled />
+              <button class="edit-btn">✏️</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Vehicle model</label>
+            <div class="input-container">
+              <input type="text" value="Dzire - 1 variant VTVT" disabled />
+              <button class="edit-btn">✏️</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select Manufacture year</label>
+            <div class="year-grid">
+              <button *ngFor="let year of manufactureYears">{{ year }}</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select Insurance Type</label>
+            <select>
+              <option>Comprehensive</option>
+              <option>Third Party</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Enter sum insured</label>
+            <input type="text" placeholder="Enter Insured Amount" />
+          </div>
+          <div class="button-group">
+            <button type="button" class="btn-back">Back</button>
+            <button type="submit" class="btn-continue" [routerLink]="'/select-insuranace-type'">Continue</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <!-- </div> -->
+  

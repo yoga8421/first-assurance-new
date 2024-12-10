@@ -1,0 +1,39 @@
+<app-header-nav></app-header-nav>
+
+
+<div class="parent">
+
+    <div class="text">
+        <h1>First Assurance <span>Quote</span></h1>
+        <p>Get insurance fast and easy.</p>
+    </div>
+
+    <div class="car-brand">
+        <div class="cb-1">
+            <h2>Looking to insure brand new car?</h2>
+            <p>Why pay for repairs when your car insurance can do it for you?</p>
+        </div>
+        <div class="quote-form">
+            <div class="input-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" id="mobileNumber" maxlength="10" placeholder="Enter Mobile number"
+                    [(ngModel)]="mobileNumber" />
+            </div>
+            <button class="quote-btn" (click)="getQuote()">Get Quote</button>
+        </div>
+        <div class="cb-3">
+            T&Cs Apply
+        </div>
+    </div>
+
+    <div class="check-price">
+        <div class="car-icon">
+            <img src="assets/images/car-side-view.svg.png" alt="">
+        </div>
+        <div class="renew-text">
+            Need you renew insurance for your vehicle ?
+        </div>
+        <button class="check-btn">Check Price</button>
+    </div>
+
+</div>

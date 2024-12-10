@@ -1,0 +1,172 @@
+<app-header-nav></app-header-nav>
+
+<div class="parent">
+<div class="form-container">
+  <h2>We just need some more information</h2>
+  <div class="input-group">
+    <label for="vehicle-make">Vehicle make</label>
+    <div class="input-with-icon">
+      <input id="vehicle-make" type="text" value="Maruti Suzuki" disabled />
+      <button class="edit-btn">✏️</button>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="vehicle-model">Select Vehicle model</label>
+    <select id="vehicle-model">
+      <option>Model_name</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label for="manufacture-year">Manufacture Year</label>
+    <select id="manufacture-year">
+      <option>2023</option>
+      <option>2022</option>
+      <option>2021</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label>Select Insurance Type</label>
+    <div class="insurance-types">
+      <button>Type 1</button>
+      <button>Type 2</button>
+      <button>Type 3</button>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="sum-insured">Enter sum insured</label>
+    <input id="sum-insured" type="text" placeholder="Enter Insured Amount" />
+  </div>
+
+  <div class="form-actions">
+    <button class="back-btn">Back</button>
+    <button class="continue-btn" [routerLink]="'/model-name'">Continue</button>
+  </div>
+</div>
+</div>
+
+
+
+<!-- <main class="vehicle-insurance-container" role="main"> -->
+    <!-- <nav class="navigation-bar" role="navigation" aria-label="Main navigation">
+      <div class="logo-section">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/d1a966b9afada7abd781554ee219f80104591153b3c50b050eb682148bb28401?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="Company Logo" class="company-logo" />
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/5547b0fd21588c5a83ebff499348c2369773187bc133363e43c145f9238d486e?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="Brand Logo" class="brand-logo" />
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ceeb40635cfb3132fc1ec1e4f772ee2431dc086eb5c97e20de74fcabea5183b?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="Brand Name" class="brand-name" />
+      </div>
+      
+      <div class="nav-items">
+        <div class="nav-group" role="menubar">
+          <button 
+            *ngFor="let item of navigationItems"
+            class="nav-button"
+            role="menuitem"
+            [attr.aria-label]="item.label"
+          >
+            <img [src]="item.icon" [alt]="item.label" class="nav-icon" />
+            <span>{{ item.label }}</span>
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4f2ff27d99286ab037e32343c7125743ff62fb54240b9f7b5a1ecfa73bc8e75b?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="" class="dropdown-icon" aria-hidden="true" />
+          </button>
+        </div>
+  
+        <div class="profile-section" role="button" tabindex="0" aria-label="User profile">
+          <img [src]="userProfile.image" [alt]="userProfile.name" class="profile-image" />
+          <span class="profile-name">{{ userProfile.name }}</span>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9d41209c8da6e17cd5d8579a7ac819c4aeaf0c55ad6c0a058ab0226a1d708bdd?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="" class="dropdown-icon" aria-hidden="true" />
+        </div>
+      </div>
+    </nav> -->
+  
+    <!-- <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()" class="vehicle-form" role="form" aria-label="Vehicle insurance form">
+      <h1 class="form-title">We just need some more information</h1>
+  
+      <section class="vehicle-make-section" role="region" aria-labelledby="vehicleMakeLabel">
+        <div class="make-details">
+          <h2 id="vehicleMakeLabel" class="section-label">Vehicle make</h2>
+          <p class="make-value">Maruti Suzuki</p>
+        </div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9ecf152b2d638866022a03f1e8a5a8b9a7a1e34c42b175a38c9d3c0134605944?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="" class="make-icon" aria-hidden="true" />
+      </section>
+  
+      <section class="model-selection" role="region" aria-labelledby="modelLabel">
+        <div class="model-header">
+          <h2 id="modelLabel" class="section-label">Select Vehicle model</h2>
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e3a902cd999aea8e56f0f78ced642bd3701e482de9b1895df3f700add515c0f?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="" class="model-icon" aria-hidden="true" />
+        </div>
+        
+        <div class="search-box">
+          <label for="vehicleModel" class="visually-hidden">Search vehicle model</label>
+          <input 
+            type="text"
+            id="vehicleModel"
+            formControlName="vehicleModel"
+            placeholder="Search vehicle model"
+            aria-label="Search vehicle model"
+          />
+          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/298921e0922a5204f36428e7c48a2dcf29315739581a3c34b68c72888b779fa2?placeholderIfAbsent=true&apiKey=4d7977f1d3054b48a4ebac8352e61b8e" alt="" class="search-icon" aria-hidden="true" />
+        </div>
+      </section>
+  
+      <section class="year-selection" role="region" aria-labelledby="yearLabel">
+        <h2 id="yearLabel" class="section-label">Manufacture Year</h2>
+        <select 
+          id="manufactureYear"
+          formControlName="manufactureYear"
+          aria-label="Select manufacture year"
+        >
+          <option value="">Select Year</option>
+          <option *ngFor="let year of availableYears" [value]="year">{{year}}</option>
+        </select>
+      </section>
+  
+      <fieldset class="insurance-type">
+        <legend>Select Insurance Type</legend>
+        <div class="type-options" role="radiogroup" aria-label="Insurance type options"> -->
+          <!-- <button 
+            type="button"
+            *ngFor="let type of ['comprehensive', 'thirdParty', 'basic']"
+            class="type-button"
+            [class.active]="selectedInsuranceType === type"
+            (click)="onInsuranceTypeSelect(type as InsuranceType)"
+            [attr.aria-pressed]="selectedInsuranceType === type"
+          >
+            {{type}}
+          </button> -->
+        <!-- </div>
+      </fieldset>
+  
+      <section class="sum-insured" role="region" aria-labelledby="sumInsuredLabel">
+        <h2 id="sumInsuredLabel" class="section-label">Enter sum insured</h2>
+        <input
+          type="number"
+          id="sumInsured"
+          formControlName="sumInsured"
+          placeholder="Enter Insured Amount"
+          aria-label="Enter sum insured amount"
+          min="1000"
+        />
+      </section>
+  
+      <div class="form-actions">
+        <button 
+          type="button" 
+          class="back-button"
+          (click)="onBack()"
+          aria-label="Go back to previous page"
+        >
+          Back
+        </button>
+        <button 
+          type="submit" 
+          class="continue-button"
+          [disabled]="!vehicleForm.valid"
+          aria-label="Continue with form submission"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </main> -->

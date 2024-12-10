@@ -1,0 +1,233 @@
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+    <div class="flex flex-column align-items-center justify-content-center">                
+        <div class="loginCard1">
+            
+            <div class="w-full surface-card py-8 px-5 sm:px-8 loginCardBorder">
+                <div class="flex flex-warp justify-content-end">
+                    <p-button icon="pi pi-language" [label]="lang" mat-icon-button [matMenuTriggerFor]="menu" shape="circle" severity="danger" />&nbsp;&nbsp;
+                    <mat-menu #menu="matMenu">
+                        <ng-container *ngFor="let obj of langList">
+                            <button mat-menu-item (click)="setLanguage(obj.Code)">
+                                <span>{{getLangCodeDesc(obj)}}</span>
+                            </button>
+                        </ng-container>
+                    </mat-menu>
+                </div>
+                <div class="text-center mb-5">
+                    <img src="assets/demo/images/login/userIcon.png" alt="Image" height="50" class="mb-3">
+                    <div class="text-900 text-3xl font-medium mb-3">{{ 'LOGIN.WelcometoXYZInsurance' | translate }}</div>
+                    
+                    <span class="text-600 font-medium" *ngIf="!errorSection">{{ 'LOGIN.Signintocontinue' | translate }}</span>
+                    <span class="text-600 font-medium" *ngIf="errorSection">{{ 'LOGIN.SessionError' | translate }}</span>
+                </div>
+                <p-messages [(value)]="messages" [enableService]="false"></p-messages>
+                <div *ngIf="!errorSection && !changePasswordSection && !forget && !retrieveSection">
+                    <label for="email1" class="block text-900 text-xl font-medium mb-2">{{ 'LOGIN.UserName' | translate }}</label>
+                    <input id="email1" type="text" [(ngModel)]="username" [placeholder]="'LOGIN.UserName' | translate" pInputText class="w-full mb-5 padding1Rem">
+
+                    <label for="password1" class="block text-900 font-medium text-xl mb-2">{{ 'LOGIN.Password' | translate }}</label>
+                    <p-password id="password1" [(ngModel)]="password" [feedback]="false" [toggleMask]="true" [placeholder]="'LOGIN.Password' | translate" styleClass="mb-5 w-full" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
+
+                    <div class="flex align-items-center justify-content-between mb-5 gap-5">
+                        <a class="font-medium no-underline ml-2 text-right cursor-pointer primaryTextColor" (click)="Forget('foget','ForgotPassword');changepass('ForgotPassword')">{{ 'LOGIN.ForgotPassword?' | translate }}</a>
+                        <a class="font-medium no-underline ml-2 text-right cursor-pointer primaryTextColor" (click)="Forget('change','ChangePassword');changepass('ChangePassword')">{{ 'LOGIN.ChangePassword?' | translate }}</a>
+                    </div>
+                  
+                    <button pButton pRipple label="{{ 'LOGIN.SignIn' | translate }}" class="w-full p-3 text-xl" (click)="submit('N')"></button><br>
+                    <div class="flex align-items-center justify-content-between mb-5 gap-5">
+                        <!-- <a class="font-medium no-underline ml-2 text-right cursor-pointer primaryTextColor" (click)="onRetrieveQuote()"><u>{{ 'LOGIN.RetrieveQuoteUsingMobileNumber?' | translate }}</u></a> -->
+                        <a class="font-medium no-underline ml-2 text-right cursor-pointer primaryTextColor" (click)="onB2CNavigate('direct')"><u>{{ 'LOGIN.B2CQuote' | translate }}</u></a>
+                    </div>
+                    
+                </div>
+                <div *ngIf="errorSection">
+                      <div class="text-center customText">
+                                <span>{{getMessageText()}}</span>
+                      </div>
+                      <div class="flex justify-content-center mt-3">
+                            <div><p-button styleClass="p-button-outlined" [label]="'LOGIN.Cancel' | translate" (click)="onCancelLogin()"></p-button>&nbsp;</div>
+                            <div>&nbsp;<p-button (click)="submit('Y')" [label]="'LOGIN.ProceedLogin' | translate"></p-button></div>
+                      </div>
+                </div>
+                <div class="back_login" *ngIf="retrieveSection">
+                    <div class="login-component inner_login">
+                        
+                        <form [formGroup]="changeForm">
+                            <!-- <label for="email1" class="block text-900 text-xl font-medium mb-2">{{ 'LOGIN.UserName' | translate }}</label> -->
+                            <label for="email1" class="block text-900 text-xl font-medium mb-2">Mobile No</label>
+                            <input id="email1" type="text" [(ngModel)]="mobileNo" placeholder="Enter Your MobileNo" maxlength="10" pInputText class="w-full mb-5 padding1Rem">
+                            <div class="mt-3">
+                                <!--class="grid mt-4 ml-5" style="text-align: center !important;"-->
+                                <div style="text-align: center !important;">
+                                    <p-button class="mr-4 mb-4" [label]="'LOGIN.Cancel' | translate" (click)="cancel(value_cancel)"></p-button>
+                                    <p-button class="mr-4 mb-4" [label]="'LOGIN.Login' | translate" (click)="onsubmitMobileLogin(mobileNo)"></p-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                            <div class="text-center mb-2">
+                            <!-- <img src="assets/demo/images/login/userIcon.png" alt="Image" height="50" class="mb-3"> -->
+                            <i class="pi pi-verified w-full" style="color: #042181 ;font-size: 3.5rem" ></i>  <br>
+                            <div class="text-900 text-3xl font-medium w-full">OTP Verification</div>
+                            <!-- <span class="text-600 font-medium" *ngIf="!errorSection">Sign in to continue</span>
+                            <span class="text-600 font-medium" *ngIf="errorSection">Session Error!</span> -->
+                        </div>
+                        <!-- <p-messages [(value)]="messages" [enableService]="false"></p-messages> -->
+                         <div><h5>Generated OTP ~ &nbsp;&nbsp; {{otpGenerated}}</h5></div>
+                        <div >
+                            <label for="otp">Enter OTP</label>
+                            <input pInputText id="otp" maxlength="6" class="w-full" [(ngModel)]="otpValue" name="otpValue" required/>
+                            <div class="justify-content-center ">
+                               <!-- <label class="p-2"> Not Received OTP?</label> -->
+                                <button pButton pRipple class="p-button-outlined mt-1" (click)="onLogin()" [disabled]="OtpBtnEnable">
+                                    Resend OTP <span *ngIf="OtpBtnEnable">in ( {{ OtpBtnTime }} seconds)</span>
+                                </button>
+                            </div>
+                            <div class="flex flex-warp justify-content-center mt-5">
+                                <button pButton pRipple label="Cancel" type="button" class="p-button-outlined"
+                                (click)="cancelOtp(value_cancel)"><span></span></button>&nbsp;
+                                <button pButton pRipple label="Submit" type="button" class="custom-btn btn-3"
+                                [disabled]="otpValue == ''" (click)="onOtpValidate()"><span></span></button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="back_login" *ngIf="changePasswordSection">
+                    <div class="login-component inner_login">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="middle-line">
+                                    <!-- <span>{{'LOGIN.ResetPassword' | translate}}</span> -->
+                                    <span>Reset Password</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="passExpiredError">
+                            <div class="col-12">
+                                <div class="input-control-container">
+                                    <span class="text-danger"><b>Password Expired, Please Reset</b></span>
+                                </div>
+                            </div>
+                        </div>
+                        <form [formGroup]="changeForm">
+                            <label for="email1" class="block text-900 text-xl font-medium mb-2">{{ 'LOGIN.UserName' | translate }}</label>
+                            <!-- <label for="email1" class="block text-900 text-xl font-medium mb-2">UserName</label> -->
+                            <input id="email1" type="text" [(ngModel)]="username1" [placeholder]="'LOGIN.UserName' | translate" pInputText class="w-full mb-5 padding1Rem">
+        
+                            <label for="password1" class="block text-900 font-medium text-xl mb-2">{{ 'LOGIN.OldPassword' | translate }}</label>
+                            <!-- <label for="password1" class="block text-900 font-medium text-xl mb-2">Old Password</label> -->
+                            <p-password id="password1" [(ngModel)]="password2" [feedback]="false" [toggleMask]="true" [placeholder]="'LOGIN.OldPassword' | translate" styleClass="mb-5 w-full" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
+
+                            <!-- <label for="password2" class="block text-900 font-medium text-xl mb-2">New Password</label> -->
+                             <label for="password1" class="block text-900 font-medium text-xl mb-2">{{ 'LOGIN.NewPassword' | translate }}</label>
+                            <p-password id="password2" [(ngModel)]="password1" [feedback]="false" [toggleMask]="true" [placeholder]="'LOGIN.NewPassword' | translate" styleClass="mb-5 w-full" inputStyleClass="w-full p-3 md:w-30rem"></p-password>
+                            <!-- <div class="row">
+                                <div class="col-12">
+                                        <div class="input-control-container">
+                                            <label class="input-form-label">UserName&nbsp;<span class="text-danger">*</span></label> 
+                                            <div class="input-form-box">
+                                                <input type="text" formControlName="LoginId" class="input-form-control without-icon"
+                                                    maxlength="20">
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4" *ngIf="pass">
+                                <div class="col-12">
+                                        <div class="input-control-container"  >
+                                            <label class="input-form-label" >Old
+                                                Password &nbsp;<span class="text-danger">*</span></label>
+                                            <div class="input-form-box">
+                                                <input type="password" formControlName="OldPassword"
+                                                    class="input-form-control without-icon" maxlength="20">
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4" *ngIf="!pass">
+                                <div class="col-12">
+                                    <div class="input-control-container" >
+                                        <label class="input-form-label">Temporary Password&nbsp;<span class="text-danger">*</span></label> 
+                                        <div class="input-form-box">
+                                            <input type="password" formControlName="OldPassword"
+                                                class="input-form-control without-icon" maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="input-control-container" >
+                                        <label class="input-form-label">New Password&nbsp;<span class="text-danger">*</span></label>
+                                        <div class="input-form-box">
+                                            <input type="password" formControlName="NewPassword"
+                                                class="input-form-control without-icon" maxlength="20">
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div> -->
+                            <div class="mt-3">
+                                <!--class="grid mt-4 ml-5" style="text-align: center !important;"-->
+                                <div style="text-align: center !important;">
+                                    <p-button class="mr-4 mb-4" [label]="'LOGIN.Reset' | translate" (click)="resetForm()"></p-button>
+                                    <p-button class="mr-4 mb-4" [label]="'LOGIN.Login' | translate" (click)="cancel(value_cancel)"></p-button>
+                                    <p-button class="mr-4 mb-4" [label]="'LOGIN.Submit' | translate" (click)="onsubmit()"></p-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="back_login" *ngIf="forget">
+                    <div class="login-component inner_login">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="middle-line">
+                                    <!-- <span>{{'LOGIN.ForgotPassword' | translate}}</span> -->
+                                    <span>Forgot Password</span>
+                                </div>
+                            </div>
+                        </div>      
+                        <div class="grid">
+                            <label for="email1" class="block text-900 text-xl font-medium mb-2">{{'LOGIN.UserName' | translate}}</label>
+                            <input id="email1" type="text" [(ngModel)]="username2" [placeholder]="'LOGIN.UserName' | translate" pInputText class="w-full mb-5 padding1Rem">
+        
+                            <label for="password1" class="block text-900 font-medium text-xl mb-2">{{'LOGIN.Email' | translate}}</label>
+                            <input id="password1" type="text" [(ngModel)]="Email" [placeholder]="'LOGIN.Email' | translate" pInputText class="w-full mb-5 padding1Rem">
+                          
+                        </div>            
+                                  <!-- <div class="row">
+                                      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                          <div class="input-control-container">
+                                              <label class="input-form-label">Username&nbsp;<span class="text-danger">*</span></label>
+                                              <div class="input-form-box">
+                                                  <input type="text" id="username" class="input-form-control without-icon"
+                                                      [(ngModel)]="username" maxlength="50">
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
+                                          <div class="input-control-container">
+                                              <label class="input-form-label">Email Id&nbsp;<span class="text-danger">*</span></label>
+                                              <div class="input-form-box">
+                                                  <input type="text" [(ngModel)]="emailId" class="input-form-control without-icon" 
+                                                      maxlength="40">
+                                                      
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div> -->
+                                    <div><!--class="grid mt-4 ml-5"-->
+                                      <div style="text-align: center !important;">
+                                        <p-button class="mr-4 mb-4" [label]="'LOGIN.Cancel' | translate" (click)="cancel(value_cancel)"></p-button>
+                                        <p-button class="mr-4 mb-4" [label]="'LOGIN.Submit' | translate" (click)="forgetSubmit()"></p-button>
+                                      </div>
+                                  </div>
+                             
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,201 @@
+<div class="card pl-2">
+    <div class="grid" >
+        <div class="col-12 pl-5 pr-5 pb-0">
+            <div>
+                <h4 class="m-0 p-0">Customer Details</h4>
+            </div>
+                
+        </div> 
+        </div>
+        <div class="grid mt-2 ml-2" >
+        <div class="lg:col-6 md:col-6 col-12">
+            <h3>Personal Information</h3>
+            <div class="flex flex-wrap">
+                <div class="lg:col-4 md:col-6 col-12">
+                    <b>Customer Name</b>
+                    <p></p>
+                </div>
+                <div class="lg:col-4 md:col-6 col-12">
+                    <b>Customer Type</b>
+                    <p></p>
+                </div>
+                <!-- <div class="lg:col-4 md:col-6 col-12">
+                    <b>Occupation</b>
+                    <p>{{customerDetails.OccupationDesc}}</p>
+                </div> -->
+    
+            </div>
+        </div>
+        <div class="lg:col-6 md:col-6 col-12">
+            <div class="flex flex-wrap justify-content-between">
+                <div><h3>Address Details</h3></div>
+                <!-- <div><p-button label="Change Customer" icon="pi pi-user" ></p-button></div> -->
+            </div>
+            <div class="flex flex-wrap">
+                <div class="lg:col-4 md:col-6 col-12">
+                    <b>Address</b>
+                    <p></p>
+                </div>
+                <div class="lg:col-4 md:col-6 col-12">
+                    <b>Country</b>
+                    <p></p>
+                </div>
+                <div class="lg:col-4 md:col-6 col-12">
+                    <b>District</b>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p-divider />
+    <!-- <div class="pl-5 pr-5 pb-0"> -->
+        <div class="grid" >
+            <div class="col-12 pl-5 pr-5 pb-0">
+            <h4 class="m-0 p-0">Vehicle Information</h4>
+        </div>  
+        </div>
+        <!-- <ng-container class="pl-5 pr-5 pb-0"> -->
+        <p-tabView >
+            <p-tabPanel header="Vehicle I">
+                <p-table  [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Register Number</th>
+                            <th>ChassisNo</th>
+                            <th>SumInsured</th>
+                            <th>Accessories</th>
+                            <th>Insurance Type</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" >
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-tabPanel>
+            <p-tabPanel header="Vehicle II">
+                <p-table  [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Register Number</th>
+                            <th>ChassisNo</th>
+                            <th>SumInsured</th>
+                            <th>Accessories</th>
+                            <th>Insurance Type</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" >
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </p-tabPanel>
+        </p-tabView>
+        <p-divider />
+    <!-- </ng-container> -->
+<!-- </div> -->
+        <div class="grid" >
+            <div class="col-12 pl-5 pr-5 pb-0">
+                <h4 class="m-0 p-0">Document Information</h4>
+            </div>  
+        </div>
+        <div class="grid justify-content-center" >
+            <div class="col-12 md:col-4 lg:col-6 px-5 offset-4">
+                <input style="display: none;" type="file"  >
+                <div class="imag-card my-3" style="width:250px !important;height:80px !important;width:100% !important;border:1px dashed;background-color: whitesmoke;"  >
+                    <div>
+                        <div class="center">
+                            <b class="text-dark" style="font-size:1rem;position: relative;top:25px">
+                                <i class="far fa-images"></i> Drag or Click</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <ng-container >
+            <h5>Selected Documents</h5><br>
+            <p-table  [tableStyle]="{'min-width':'50rem'}" [paginator]="true" [rows]="5">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th [pSortableColumn]="column" *ngFor="let column of columns">{{column}}</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" >
+                  <tr>
+                    <!-- <td><p-checkbox [binary]="true"></p-checkbox></td> -->
+                    <!-- <td></td>
+                    <td></td>
+                    <td>
+                        <p-dropdown inputId="section"
+                            appendTo="body" 
+                            class="w-full" styleClass="w-full" 
+                            [options]="individualDocumentList" [(ngModel)]="doc.locationId" 
+                            (onChange)="onChangeLocation(doc)"
+                            optionLabel="LocationName" 
+                            optionValue="LocationId" 
+                            placeholder="Select Location">
+                        </p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown inputId="section"
+                            appendTo="body" 
+                            class="w-full" 
+                            styleClass="w-full" 
+                            [options]="doc.sectionList" 
+                            [(ngModel)]="doc.sectionId" 
+                            (onChange)="onChangeSectionType(doc,i)"
+                            optionLabel="SectionName" 
+                            optionValue="SectionId" 
+                            placeholder="Select Section">
+                        </p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown inputId="Id" 
+                            appendTo="body" class="w-full" 
+                            styleClass="w-full" [options]="doc.typeList" 
+                            [(ngModel)]="doc.Id" 
+                            (onChange)="onChangeIdType(doc)"
+                            optionLabel="Id" 
+                            optionValue="Id" 
+                            placeholder="---Select---">
+                        </p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown inputId="docTypeId" 
+                        appendTo="body" 
+                            class="w-full" 
+                            styleClass="w-full" 
+                            [options]="doc.docTypeList" 
+                            [(ngModel)]="doc.DocTypeId" 
+                            (onChange)="onChangeIdType(doc)"
+                            optionLabel="CodeDesc" 
+                            optionValue="Code" 
+                            placeholder="---Select---">
+                        </p-dropdown>
+                    </td> -->
+                    <!-- <td>{{ doc.PolicyEndDate }}</td> -->
+                    <td >
+                      <span class="p-buttonset">
+                        <!-- <button pButton pRipple icon="pi pi-envelope" class="p-button-outlined"></button> -->
+                        <button pButton pRipple icon="pi pi-upload" title="Upload" class="p-button-outlined" ></button>
+                        <button pButton pRipple icon="pi pi-times" title="Delete"  class="p-button-outlined"></button>
+                      </span>
+                    </td>
+                  </tr>
+                </ng-template>
+            </p-table>
+            </ng-container>
+        <p-divider />
+        <div class="flex flex-warp justify-content-center">
+            <button pButton pRipple label="Acknowledgement & Payment Info" ></button>
+        </div>
+</div>

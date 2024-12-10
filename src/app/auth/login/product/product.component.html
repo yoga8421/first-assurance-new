@@ -1,0 +1,35 @@
+<app-topbar></app-topbar>
+<div class="m-5 customMarginTop">
+    <ng-container *ngIf="quoteSection">
+        <h1 class="text-center mb-6">{{ 'PRODUCT.SelecttheBranch' | translate }}</h1>
+        <div class="flex justify-content-center">
+            <ng-container *ngIf="userType=='Issuer'">
+                <button pButton pRipple class="p-button p-button-outlined p-3 mr-2" (click)="selectBranch(branch)" *ngFor="let branch of branches" [style.background-color]="branch.BranchCode == selectedBranch ? '#042181':''" [style.color]="branch.BranchCode == selectedBranch ? '#ffffff':''">{{branch.BranchName}}</button>
+            </ng-container>
+            <ng-container *ngIf="userType!='Issuer'">
+                <ng-container *ngFor="let branch of branches">
+                    <button pButton pRipple class="p-button p-button-outlined p-3 mr-2" (click)="selectBranch(branch)"  [style.background-color]="checkBranchBg(branch)" [style.color]="branch.BrokerBranchCode == selectedBranch ? '#ffffff':''">{{branch.BranchName}}</button>
+                </ng-container>
+                
+            </ng-container>
+        </div>
+        <ng-container *ngIf="selectedBranch">
+            <h1 class="text-center mb-6">{{ 'PRODUCT.ProductYouWishtobuy' | translate }}</h1>
+            <div class="flex flex-wrap justify-content-center text-center align-items-stretch mx-auto mt-4 product-container">
+                <div *ngFor="let product of products" class="card m-2" (click) = "selectProduct(product)">
+                    <img alt="Card" [src]="getProductUrl(product)"/>
+                    <p class="m-0">{{product.ProductName}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="approverSection">
+        <h1 class="text-center mb-6">{{ 'PRODUCT.LookingFor' | translate }}</h1>
+        <div class="flex flex-wrap justify-content-center text-center align-items-stretch mx-auto mt-4 product-container-alt">
+            <div *ngFor="let product of UserTypeList" class="card m-2" (click) = "onSelectUserType(product)">
+                <img alt="Card" [src]="getUserTypeImage(product)"/>
+                <p class="m-0"><b>{{'PRODUCT.'+product.CodeDesc | translate}}</b></p>
+            </div>
+        </div>
+    </ng-container>
+</div>

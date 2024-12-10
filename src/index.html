@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" style="font-size: 12px;">
+
+<head>
+    <meta charset="utf-8">
+    <title>First Assurance Insurance</title>
+    <base href="/">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    img-src data: https: http:;
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    connect-src 'self' *;
+    worker-src 'self' blob:;
+    frame-src 'self' blob:;" />
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'> 
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; img-src * 'self' data:;"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link id="theme-css" rel="stylesheet" type="text/css" href="assets/layout/styles/theme/saga-orange/theme.css">
+</head>
+<body>
+    <app-root></app-root>
+    <script>
+        document.addEventListener('contextmenu', event=> event.preventDefault());
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) {
+              return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+              return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+              return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+              return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

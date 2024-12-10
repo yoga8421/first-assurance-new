@@ -1,0 +1,20 @@
+<app-header-nav></app-header-nav>
+<div class="parent">
+  <div class="otp-container">
+    <h2>OTP Verification</h2>
+    <p>Please enter the OTP sent to your registered mobile number/email:</p>
+    <input
+      type="text"
+      maxlength="6"
+      placeholder="Enter OTP"
+      [(ngModel)]="otp"
+      class="otp-input"
+    />
+    <div class="otp-actions">
+      <button (click)="verifyOtp()">Verify OTP</button>
+      <button class="btn-back" (click)="goBack()">Back</button>
+    </div>
+  </div>
+  
+</div>
+

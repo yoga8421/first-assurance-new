@@ -1,0 +1,326 @@
+<app-header-nav></app-header-nav>
+<div class="parent">
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li class="active">
+                    <span class="number" routerLink="/get-quote-page" routerLinkActive="active">1</span> Basic Information
+                </li>
+                <li>
+                    <span class="number">2</span> Cover Plan Details
+                </li>
+                <li>
+                    <span class="number">3</span> Review
+                </li>
+                <li>
+                    <span class="number">4</span> Payment
+                </li>
+            </ul>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <h2>Help us with these details</h2>
+            <div class="grid">
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Customer Name *</label><br>
+                    <div class="p-inputgroup"> 
+                    <input pInputText  id="model-desc"  class="w-full" styleClass="w-full" [(ngModel)]="customerName" placeholder="Enter Your Customer Name" maxlength="60" />
+                        
+                    </div>
+                    <div class="error-text text-danger" *ngIf="customerNameError">
+                        <span class="spancommon span_font_size">Please Enter Customer Name</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Mobile No *</label><br>
+                    <div class="grid mt-2">
+                        <div class="col-3 sm:col-3 md:col-3 lg:col-3 p-0 mr-2">
+                            <input pInputText id="model-desc"  class="w-full" disabled id="MotorCategory" [(ngModel)]="mobileCode" maxlength="10" [(ngModel)]="mobileCode" />
+                        </div>
+                        <div class="col-8 sm:col-8 md:col-8 lg:col-8 p-0">
+                            <input pInputText id="model-desc"  class="w-full" id="MotorCategory" [(ngModel)]="mobileNo" placeholder="Enter Your Mobile No" maxlength="10" />
+                        </div>
+                    </div>
+                    <div class="error-text text-danger" *ngIf="mobileCodeError">
+                        <span class="spancommon span_font_size">Please Enter mobileNo</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-4 md:col-4">
+                    <label for="model" class="small-label">Gender*</label><br>
+                    <div class="mt-2">
+                        <p-dropdown inputId="gender"  [filter]="true" filterBy="CodeDesc" class="w-full" id="gender" styleClass="w-full" [(ngModel)]="gender" [options]="genderList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select">
+                        </p-dropdown>
+                    </div>
+                    <div class="error-text text-danger" *ngIf="genderError">
+                        <span class="spancommon span_font_size">Please Select Gender</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-4 md:col-4">
+                    <label for="model" class="small-label">Date Of Birth *</label><br>
+                    <div class="mt-2">
+                        <p-calendar [showIcon]="true"   [(ngModel)]="insuredDob" dateFormat="dd/mm/yy" id="RegDate" [maxDate]="dobDate"
+                        class="w-full" styleClass="w-full"  />
+                    </div>
+                    <div class="error-text text-danger" *ngIf="insuredDobError">
+                        <span class="spancommon span_font_size">Please Select DOB</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-4 md:col-4">
+                    <label for="model" class="small-label">Year Of 1st Issuance *</label><br>
+                    <input pInputText id="model-desc"  class="w-full mt-2" [(ngModel)]="licenseExperience" styleClass="w-full" placeholder="Enter Year" maxlength="4" />
+                    <div class="error-text text-danger" *ngIf="licenseExperienceError">
+                        <span class="spancommon span_font_size">Please Enter Valid Year</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Cover Type *</label><br>
+                    <p-dropdown inputId="InsuranceType"  [filter]="true" filterBy="CodeDesc" class="w-full mt-2" id="InsuranceType" (onChange)="onInsuranceClassChange('change',null);" [(ngModel)]="insuranceType" styleClass="w-full mt-2" [options]="typeList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select Cover Type">
+                    </p-dropdown>
+                    <div class="error-text text-danger" *ngIf="insuranceTypeError">
+                        <span class="spancommon span_font_size">Please Select Cover Type</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Register Number *</label><br>
+                    <input pInputText id="registerNumber"  class="w-full mt-2" [(ngModel)]="registerNumber" styleClass="w-full" placeholder="Enter Register Number" maxlength="15" />
+                    <div class="error-text text-danger" *ngIf="registerNumberError">
+                        <span class="spancommon span_font_size">Please Enter Register Number</span>
+                    </div>
+                </div>
+                <!-- <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Motor Usage *</label><br>
+                    <p-dropdown inputId="motorUsage"  [filter]="true" filterBy="CodeDesc" class="w-full mt-2" id="InsuranceType"  [(ngModel)]="motorUsageValue" styleClass="w-full mt-2" [options]="motorUsageList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select Motor Usage">
+                    </p-dropdown>
+                </div> -->
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Vehicle Class *</label><br>
+                    <p-dropdown inputId="vehicleClass"  [filter]="true" filterBy="CodeDesc" class="w-full mt-2" id="VehicleClass" [(ngModel)]="vehicleClass" styleClass="w-full mt-2" [options]="vehicleClassList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select Vehicle Class">
+                    </p-dropdown>
+                    <div class="error-text text-danger" *ngIf="vehicleClassError">
+                        <span class="spancommon span_font_size">Please Select Vehicle Class</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Make *</label><br>
+                    <p-dropdown inputId="vehicleClass"  [filter]="true" filterBy="CodeDesc" class="w-full mt-2" id="VehicleClass" [(ngModel)]="makeValue" styleClass="w-full mt-2" (onChange)="onMakeAltChange('change',null)" [options]="makeList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select Make">
+                    </p-dropdown>
+                    <div class="error-text text-danger" *ngIf="makeValueError">
+                        <span class="spancommon span_font_size">Please Select Make</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Model *</label><br>
+                    <div class="grid mt-2 ml-1">
+                        <div class="col-10 sm:col-10 md:col-10 lg:col-10 p-0">
+                            <input pInputText  id="model-desc" class="w-full" styleClass="w-full" [(ngModel)]="modelDesc" disabled placeholder="Search Model" maxlength="50"  />
+                        </div>
+                        <div class="col-2 sm:col-2 md:col-2 lg:col-2 p-0">
+                            <p-button label=""  (click)="onViewModelList('direct',null,null)" icon="pi pi-search"></p-button>
+                        </div>
+                    </div>
+                    <div class="error-text text-danger" *ngIf="modelDescError">
+                        <span class="spancommon span_font_size">Please Select Model</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Manufacture Year *</label><br>
+                    <p-dropdown inputId="vehicleClass"  class="w-full mt-2" id="VehicleClass" [filter]="true" filterBy="CodeDesc" [(ngModel)]="manufactureYear" styleClass="w-full mt-2" [options]="yearList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select Year">
+                    </p-dropdown>
+                    <div class="error-text text-danger" *ngIf="manufactureYearError">
+                        <span class="spancommon span_font_size">Please Select Manufacture Year</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6">
+                    <label for="model" class="small-label">Claim Experience *</label><br>
+                    <p-dropdown inputId="claimExperience"  class="w-full mt-2" id="claimExperience" [(ngModel)]="claimExperience" [filter]="true" filterBy="CodeDesc" styleClass="w-full mt-2" [options]="claimExperienceList" optionLabel="CodeDesc" optionValue="Code" placeholder="Select Claim Experience">
+                    </p-dropdown>
+                    <div class="error-text text-danger" *ngIf="claimExperienceError">
+                        <span class="spancommon span_font_size">Please Select Claim Experience</span>
+                    </div>
+                    <!-- <input pInputText id="model-desc" class="w-full mt-2" [(ngModel)]="claimExperience" styleClass="w-full" placeholder="Enter Experience" maxlength="3" /> -->
+                </div>
+            <!-- </div> -->
+            <!-- <div class="grid"> -->
+                
+                
+                
+                <div class="col-12 sm:col-6 md:col-6" *ngIf="insuranceType==1 || insuranceType=='1' || insuranceType==2 || insuranceType=='2'">
+                    <label for="model" class="small-label">Sum Insured *</label><br>
+                    <input pInputText id="model-desc"  class="w-full mt-2" styleClass="w-full mt-2" (keydown)="onVehicleValueChange($event)" (keyup)="CommaFormatted()" [(ngModel)]="vehicleSI" placeholder="Enter Sum Insured" maxlength="15" />
+                    <div class="error-text text-danger" *ngIf="vehicleSIError">
+                        <span class="spancommon span_font_size">Please Enter Sum Insured</span>
+                    </div>
+                </div>
+                <div class="col-12 sm:col-6 md:col-6" *ngIf="insuranceType==1 || insuranceType=='1' || insuranceType==2 || insuranceType=='2'">
+                    <label for="model" class="small-label">WindScreen Sum Insured *</label><br>
+                    <input pInputText id="model-desc"  class="w-full mt-2" styleClass="w-full mt-2" (keydown)="onVehicleValueChange($event)" (keyup)="CommaWindFormatted()" [(ngModel)]="windScreenSI" placeholder="Enter Sum Insured" maxlength="15" />
+                    
+                </div>
+                <div class="col-12 sm:col-6 md:col-6" *ngIf="insuranceType==1 || insuranceType=='1' || insuranceType==2 || insuranceType=='2'">
+                    <label for="model" class="small-label">Radio & Cassett Sum Insured *</label><br>
+                    <input pInputText id="model-desc"  class="w-full mt-2" styleClass="w-full mt-2" (keydown)="onVehicleValueChange($event)" (keyup)="CommaAccFormatted()" [(ngModel)]="AccessoriesSI" placeholder="Enter Sum Insured" maxlength="15" />
+                    
+                </div>
+            </div>
+            <div class="flex justify-content-center">
+                <p-button styleClass="p-button-outlined" label="Back" class="p-3 text-l mr-0" icon="pi pi-chevron-left"></p-button>&nbsp;
+                <p-button label="Submit" class="p-3 text-l mr-0" (click)="onCheckPremium()"></p-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="parent">
+<div class="container">
+    <div class="sidebar">
+        <ul>
+            <li class="">
+                <span class="number active">1</span> Basic Information
+            </li>
+            <li>
+                <span class="number">2</span> Cover Plan Details
+            </li>
+            <li>
+                <span class="number">3</span> Review
+            </li>
+            <li>
+                <span class="number">4</span> Payment
+            </li>
+        </ul>
+    </div>
+
+    <div class="form-container">
+        <h2>Help us with these details</h2>
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" formControlName="name" placeholder="Enter Insured Name" />
+                </div>
+                <div class="form-group">
+                    <label for="dob">Insured Date of Birth</label>
+                    <input type="date" id="dob" formControlName="dob" />
+                </div>
+            </div>
+
+
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" formControlName="gender">
+                        <option value="">Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="text" id="mobile" formControlName="mobile" placeholder="Enter 10-Digit number"
+                        maxlength="10" />
+                </div>
+            </div>
+
+
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" formControlName="email" placeholder="E-mail" />
+                </div>
+                <div class="form-group">
+                    <label for="licenseExperience">License Experience</label>
+                    <select id="licenseExperience" formControlName="licenseExperience">
+                        <option value="">Year</option>
+                        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="claim-experience">
+                <label>Claim Experience</label>
+                <p>Enter how many claims have you had for the past 3 years.</p>
+                <div class="claim-buttons">
+                    <button type="button" *ngFor="let claim of [1, 2, 3, 4]" (click)="setClaimExperience(claim)"
+                        [class.active]="claim === selectedClaim">
+                        {{ claim }}
+                    </button>
+                </div>
+            </div>
+            <div class="button-row">
+                <button class="continue-button" type="submit" [routerLink]="'/get-quote-continue'">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div> -->
+<p-dialog class="p-su-header" header="Model Details" [(visible)]="modelSearchVisible" [modal]="true" styleClass="w-10 md:w-8 lg:w-6" [draggable]="false" [resizable]="false">
+    <div class="grid">
+        <div class="col-12 md:col-12 lg:col-12 xl-col-12">
+            <ng-container *ngIf="modelList.length!=0">
+                <p-table  [value]="modelList" #dtEmployeeExist [globalFilterFields]="['Model','BodyType','FuelType','TransmissionType','WeightKg']"
+                [tableStyle]="{'min-width':'50rem'}" [paginator]="true"  [rows]="5">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex wrap justify-content-end">
+                        <div class="table-header">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dtEmployeeExist.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />
+                        </span>
+                        </div>
+                    </div>
+                </ng-template>
+                 <ng-template pTemplate="header">
+                      <tr>
+                          <th [pSortableColumn]="column" *ngFor="let column of modelColumns">{{column}} <p-sortIcon [field]="column"></p-sortIcon></th>
+                      </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-customer>
+                    <tr>
+                        <td>
+                            <input type="radio" [id]="customer?.CustomerReferenceNo" [checked]="onCheckModelChecked(customer)" name="fav_language"
+                                (change)="onSelectModel(customer)">
+                            <label for="html"></label>
+                            <!-- <p-radioButton  [value]="customer.CustomerReferenceNo" name="city" [(ngModel)]="selectedCustomer" [inputId]="customer.CustomerReferenceNo"></p-radioButton>
+                  <label for="ingredient1" class="ml-2"></label> -->
+                        </td>
+                        <td>{{customer.Model}}</td>
+                        <td>{{customer.BodyType}} {{modelDesc}}</td>
+                        <td>{{customer.FuelType}}</td>
+                        <td>{{customer.TransmissionType}}</td>
+                        <td>{{customer.WeightKg}}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+                <div class="flex flex-wrap mt-5 justify-content-center">
+                    <p-button (click)="modelSearchVisible=!modelSearchVisible" label="Close" styleClass="p-button-outlined" class="mr-3"></p-button>&nbsp;
+                    <p-button *ngIf="selectedRowData" (click)="onSaveModelDetails()" label="Submit" severity="warning"
+                        class="mb-3"></p-button>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="modelList.length==0">
+                <div class="text-center">
+                    No Data Available
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</p-dialog>

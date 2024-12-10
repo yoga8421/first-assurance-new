@@ -1,0 +1,5 @@
+
+    .product-container { max-width: 800px;cursor:pointer !important; };
+    .product-container .card{ width: 120px; };
+    .product-container .card:hover { border: 4px solid orange; };
+    .product-container .card img { width: 100%;height: 60px; object-fit: cover; };

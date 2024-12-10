@@ -1,0 +1,377 @@
+/* Base Styles */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, auto);
+    // background-color: var(--bg-color);
+    background-image: url('/assets/images/background_template.png');
+  background-size: cover;
+    padding: 1rem 5%;
+    gap: 1rem;
+}
+
+.text {
+    grid-row: 1/2;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.text span {
+    color: var(--primary-color);
+}
+
+.car-brand {
+    grid-row: 2/4;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    text-align: center;
+    background-color: #959292;
+    border-radius: 32px;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.cb-1 p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.quote-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left;
+}
+
+input {
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+    padding: 0.5rem;
+}
+
+.quote-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #ff9800;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quote-btn:hover {
+    background-color: #e68900;
+}
+
+.cb-3 {
+    font-size: 12px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-price {
+    grid-row: 4/5;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #959292;
+    border-radius: 32px;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.car-icon {
+    display: flex;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.renew-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.check-btn {
+    background-color: var(--bg-color);
+    color: #ff9800;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.8rem 1.5rem;
+}
+
+.check-btn:hover {
+    background-color: #66635e;
+}
+
+/* Responsive Adjustments */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+    .parent {
+        padding: 1rem 2rem;
+    }
+
+    .text {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .car-brand {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .check-price {
+        grid-template-columns: auto auto;
+    }
+
+    .car-icon {
+        padding: 0.8rem;
+    }
+
+    .renew-text {
+        font-size: medium;
+    }
+}
+
+/* Small Screens (Mobile Devices) */
+@media (max-width: 768px) {
+    .parent {
+        grid-template-rows: auto;
+        padding: 1rem;
+    }
+
+    .text {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .car-brand {
+        grid-template-rows: repeat(3, auto);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .quote-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+
+    .check-price {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .car-icon {
+        margin: 0 auto;
+    }
+
+    .renew-text {
+        font-size: medium;
+        text-align: center;
+    }
+}
+
+/* Extra Small Screens (Very Small Devices) */
+@media (max-width: 480px) {
+    .text {
+        font-size: 0.8rem;
+    }
+
+    .quote-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .check-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .renew-text {
+        font-size: small;
+    }
+
+    .car-brand {
+        padding: 0.8rem;
+    }
+
+    .car-icon {
+        padding: 0.5rem;
+    }
+}
+
+/* .parent {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: var(--bg-color);
+    padding: 1rem 23rem;
+}
+.text {
+    grid-row: 1/2;
+    font-size: 20px;
+    text-align: center;
+}
+
+.text span {
+    color: var(--primary-color);
+}
+.car-brand {
+    grid-row: 2 / 4;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    text-align: center;
+    
+
+    background-color: #959292;
+    border-radius: 32px;
+}
+
+.cb-1 p {
+    color: #555;
+    margin-bottom: 20px;
+}
+.quote-form {
+    display: flex;
+    align-items: center;
+    margin: 0.8% 10%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: #333;
+    text-align: left;
+}
+
+input {
+
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+
+}
+
+.quote-btn {
+    padding: 20px 30px;
+    background-color: #ff9800;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 35%;
+    transition: background-color 0.3s;
+}
+
+.quote-btn:hover {
+    background-color: #e68900;
+}
+
+.cb-3 {
+    font-size: 12px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.check-price {
+    grid-row: 4/5;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    background-color: #959292;
+    border-radius: 32px;
+
+    margin: 1rem 0;
+}
+
+.car-icon {
+    display: flex;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem 2rem;
+}
+
+.renew-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: large;
+    font-weight: bold;
+}
+
+.check-btn {
+    background-color: var(--bg-color);
+    color: #ff9800;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 2rem 1.5rem;
+}
+
+.check-btn:hover {
+    background-color: #66635e;
+} */
